@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+  {{ page_title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h1>{{ page_title }}</h1>
+  <p>hello again</p>
+  {% include 'snippets/welcome-user-msg.html' %}
+   <p>page_visits: {{ page_visit_count }}</p> <!--its a class value that count the amount of pages visited -->
+   <p>percent: {{ percent }}</p>
+   <P>total visists: {{ total_visit_count }}</P> 
+{% endblock %}
