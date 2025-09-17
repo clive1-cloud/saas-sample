@@ -21,7 +21,7 @@ def about_view(request, *args, **Kwargs):
     my_context = {
         "page_title": my_title,
         "page_visit_count": queryset.count(),
-        "percent":(queryset.count() *100.0) /qs.count(),
+        "percent":(queryset.count() *100) /qs.count(),
         "total_count_visit": qs.count(),
     }
 
