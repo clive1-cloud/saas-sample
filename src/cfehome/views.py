@@ -6,9 +6,16 @@ from visits.models import PageVisit
 
 
 this_dir = pathlib.Path(__file__).resolve().parent
-def home_pages_view(request, *args, **Kwargs):
+def home_view(request, *args, **Kwargs):
+   return about_view(request, *args, **Kwargs)
+
+def about_view(request, *args, **Kwargs):
     qs = PageVisit.objects.all()
     queryset = PageVisit.objects.filter(path=request.path)
+    try:
+        percent = (queryset.count() * 100.0) / qs.count()
+    except:
+        percent = 0
 
     my_title = "my page"
     my_context = {
@@ -18,8 +25,6 @@ def home_pages_view(request, *args, **Kwargs):
         "total_count_visit": qs.count(),
     }
 
-    path = request.path
-    print("path", path)
     html_template = "home.html"
     PageVisit.objects.create(path=request.path)
     return render(request, html_template, my_context)
