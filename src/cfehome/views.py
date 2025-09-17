@@ -13,7 +13,7 @@ def about_view(request, *args, **Kwargs):
     qs = PageVisit.objects.all()
     queryset = PageVisit.objects.filter(path=request.path)
     try:
-        percent = (queryset.count() * 100.0) / qs.count()
+        percent = (queryset.count() * 100) / qs.count()
     except:
         percent = 0
 
@@ -21,7 +21,7 @@ def about_view(request, *args, **Kwargs):
     my_context = {
         "page_title": my_title,
         "page_visit_count": queryset.count(),
-        "percent":(queryset.count() *100) /qs.count(),
+        "percent": percent,
         "total_count_visit": qs.count(),
     }
 
