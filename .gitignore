@@ -1,3 +1,8 @@
+#ignore vendor static files
+src/staticfiles/vendors
+
+.DS_store
+
 venv/
 # Byte-compiled / optimized / DLL files
 __pycache__/
